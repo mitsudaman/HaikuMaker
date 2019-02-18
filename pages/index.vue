@@ -1,13 +1,5 @@
 <template>
-  <b-container>
-    <div class="mb-3">
-      <b-nav>
-        <b-nav-item active>トップ</b-nav-item>
-        <b-nav-item>今日の一句</b-nav-item>
-        <b-nav-item>今週の一句</b-nav-item>
-        <b-nav-item disabled>累計の一句</b-nav-item>
-      </b-nav>
-    </div>
+  <b-container class="px-md-5">
     <!-- <div 
     class="card text-center font-weight-bold h1">
       <div class="card-body">
@@ -17,72 +9,87 @@
         <p>バグで帰社</p>
       </div>
     </div>-->
-    <div id="wrapper" class="text-center pl-md-5 pr-md-5">
-      <svg
-        version="1.1"
-        viewBox="0 0 1200 630"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:cc="http://creativecommons.org/ns#"
-        xmlns:dc="http://purl.org/dc/elements/1.1/"
-        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-        ref="svgCard"
-      >
-        <metadata>
-          <rdf:RDF>
-            <cc:Work rdf:about>
-              <dc:format>image/svg+xml</dc:format>
-              <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
-              <dc:title></dc:title>
-            </cc:Work>
-          </rdf:RDF>
-        </metadata>
-        <g transform="matrix(1.0065 0 0 1.0174 -2.1136 332.78)">
-          <rect
-            x="24.335"
-            y="-306.15"
-            width="1157.5"
-            height="582.69"
-            fill="#fff"
-            stroke="#72cd0f"
-            stroke-width="44.234"
-          ></rect>
-        </g>
-        <text
-          transform="scale(.74407 1.344)"
-          x="124"
-          y="128"
-          fill="#000000"
-          font-family="HiraginoSans-W5, Hiragino Sans"
-          font-size="100px"
-          letter-spacing="0px"
-          stroke-width="2.8"
-          word-spacing="0px"
-          style="line-height:1.25"
-          xml:space="preserve"
+    <div class="pt-1  ">
+      <div 
+        id="svg_demo" 
+        class="text-center border border-dark mt-3 ">
+        <svg
+          version="1.1"
+          viewBox="0 0 1200 630"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:cc="http://creativecommons.org/ns#"
+          xmlns:dc="http://purl.org/dc/elements/1.1/"
+          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          ref="svgCard"
         >
-          <tspan x="120" y="150" stroke-width="2.8">{{newHaiku1}}</tspan>
-          <tspan x="400" y="280" stroke-width="2.8">{{newHaiku2}}</tspan>
-          <tspan x="850" y="410" stroke-width="2.8">{{newHaiku3}}</tspan>
-        </text>
-      </svg>
+          <metadata>
+            <rdf:RDF>
+              <cc:Work rdf:about>
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
+                <dc:title></dc:title>
+              </cc:Work>
+            </rdf:RDF>
+          </metadata>
+          <g transform="matrix(1.0065 0 0 1.0174 -2.1136 332.78)">
+            <rect
+              x="24.335"
+              y="-306.15"
+              width="1157.5"
+              height="582.69"
+              fill="#fff"
+              stroke="#72cd0f"
+              stroke-width="44.234"
+            ></rect>
+          </g>
+          <text
+            transform="scale(.74407 1.344)"
+            x="124"
+            y="128"
+            fill="#000000"
+            font-family="HiraginoSans-W5, Hiragino Sans"
+            font-size="100px"
+            letter-spacing="0px"
+            stroke-width="2.8"
+            word-spacing="0px"
+            style="line-height:1.25"
+            xml:space="preserve"
+          >
+            <tspan x="120" y="150" stroke-width="2.8">{{haiku1}}</tspan>
+            <tspan x="400" y="280" stroke-width="2.8">{{haiku2}}</tspan>
+            <tspan x="850" y="410" stroke-width="2.8">{{haiku3}}</tspan>
+          </text>
+        </svg>
+      </div>
     </div>
-    <div class="mt-4">
+    <div class="mt-4 font-weight-bold">
       <b-form-group label="上の句:">
-        <b-form-input v-model="newHaiku1" required></b-form-input>
+        <b-form-input v-model="haiku1" required></b-form-input>
       </b-form-group>
     </div>
-    <div class="mt-2">
+    <div class="mt-2 font-weight-bold">
       <b-form-group label="中の句:">
-        <b-form-input v-model="newHaiku2" required></b-form-input>
+        <b-form-input v-model="haiku2" required></b-form-input>
       </b-form-group>
     </div>
-    <div class="mt-2">
+    <div class="mt-2 font-weight-bold">
       <b-form-group label="下の句:">
-        <b-form-input v-model="newHaiku3" required></b-form-input>
+        <b-form-input v-model="haiku3" required></b-form-input>
       </b-form-group>
     </div>
     <div class="text-right">
-      <b-button @click="create()" class>詠む</b-button>
+      <b-button 
+      @click="create()" 
+      class="btn-haiku-create">
+        <i class="fas fa-plus"></i> 俳句を詠む</b-button>
+    </div>
+    <div class="mt-3">
+      <a 
+        class="btn btn-block btn-tw" 
+        v-bind:href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー&url=https://haikumaker-5d430.firebaseapp.com/m/'+ firebase_function_link"
+        target="_blank"
+        role="button">
+        <i class="fab fa-twitter"></i>詠み届ける</a>
     </div>
   </b-container>
 </template>
@@ -104,16 +111,18 @@ var config = {
 if (!firebase.apps.length) {
     firebase.initializeApp(config);
 }
+var db = firebase.firestore();
 
 export default {
   components: {
   },
   data() {
     return {
-      newHaiku1: 'あいうえお',
-      newHaiku2: 'かきくけこかこ',
-      newHaiku3: 'さしすせそ',
+      haiku1: 'あいうえお',
+      haiku2: 'かきくけこかこ',
+      haiku3: 'さしすせそ',
       uuid: uuid.v1(),
+      firebase_function_link: ""
     };
   },
   methods: {
@@ -128,18 +137,39 @@ export default {
       
       const data = new XMLSerializer().serializeToString(this.$refs.svgCard);
       canvg(canvas, data)
-    
       let image = canvas.toDataURL('image/jpeg').split(',')[1]
-      createRef.putString(image, 'base64').then(function(snapshot) {
-        console.log('Uploaded a blob or file!');
-        // console.log(snapshot)
+      createRef.putString(image, 'base64').then((snapshot) =>{
+      console.log('Uploaded a blob or file!');
+        
+        db.collection("posts").add({
+          haiku1: this.haiku1,
+          haiku2: this.haiku2,
+          haiku3: this.haiku3,
+          ogp_full_path: this.uuid,
+          read_count: 0,
+          tag: 1,
+        })
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+            this.firebase_function_link = docRef.id
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
       });
-
     }
   }
 };
 </script>
 
 <style>
+.btn-haiku-create {
+  color: white;
+  background-color: green
+}
+.btn-tw {
+  color: white;
+  background-color: #00aced;
+}
 </style>
 

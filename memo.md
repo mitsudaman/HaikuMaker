@@ -113,6 +113,26 @@ running firebase use --add
 
 
 --------------------------------------------
+◾docker上からfunctionを更新する
+
+"rewrites": [
+      {
+        "source": "/ogp/**", 
+        "function": "ogp"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]"
+
+exports.[]の部分をogpに変える
+
+firebase deploy --only functions
+
+
+
+--------------------------------------------
 ◾strage に アップする方法設定
 
 ▼strage スタートアップガイド(公式)
@@ -142,16 +162,21 @@ Authentication　ページ
 
 
 
+▼ECMAScript6のアロー関数とPromiseまとめ - JavaScript
+thisの使い方について
+https://qiita.com/takeharu/items/c23998d22903e6d3c1d9
+
+❌ createRef.putString(image, 'base64').then(function(snapshot) 
+⭕️ createRef.putString(image, 'base64').then((snapshot) =>{
+
+
+
 --------------------------------------------
-◾docker上からfunctionを更新する
+◾fontawsome
+https://yinm.info/20181008/
+https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers
 
-
-
-
-
-
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/mitsudaman/HaikuMaker.git
-git push -u origin master
+yarn add --dev @fortawesome/fontawesome-free
+  css: [
+    '@fortawesome/fontawesome-free/css/all.css',
+  ],

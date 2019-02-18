@@ -35,6 +35,9 @@ module.exports = {
       }
     }
   },
+  css: [
+    '@fortawesome/fontawesome-free/css/all.css',
+  ],
   modules: [
     'bootstrap-vue/nuxt',
 
