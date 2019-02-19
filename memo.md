@@ -70,6 +70,16 @@ https://github.com/SugarShootingStar/visualization-twitter-grass/blob/bafb35d58f
 あざああああす！
 
 --------------------------------------------
+◾fontawsome
+https://yinm.info/20181008/
+https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers
+
+yarn add --dev @fortawesome/fontawesome-free
+  css: [
+    '@fortawesome/fontawesome-free/css/all.css',
+  ],
+
+--------------------------------------------
 ◾uuid
 
 https://github.com/VitorLuizC/vue-uuid
@@ -128,6 +138,7 @@ running firebase use --add
 
 exports.[]の部分をogpに変える
 
+▼firebaseのみデプロイ
 firebase deploy --only functions
 
 
@@ -172,11 +183,12 @@ https://qiita.com/takeharu/items/c23998d22903e6d3c1d9
 
 
 --------------------------------------------
-◾fontawsome
-https://yinm.info/20181008/
-https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers
+◾function index.js中でのfirestoreの接続
 
-yarn add --dev @fortawesome/fontawesome-free
-  css: [
-    '@fortawesome/fontawesome-free/css/all.css',
-  ],
+
+▼Cloud Firestore を使ってみる(Cloud Firestore を初期化する/NODE.JS)
+https://firebase.google.com/docs/firestore/quickstart?hl=ja
+
+
+▼Cloud Firestore でデータを取得する
+https://firebase.google.com/docs/firestore/query-data/get-data?hl=ja

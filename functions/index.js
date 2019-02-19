@@ -1,16 +1,36 @@
 const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+admin.initializeApp(functions.config().firebase);
+var db = admin.firestore();
+
 
 exports.m = functions.https.onRequest((req, res) => {
 
+  const [ , , doc_id] = req.path.split('/')
+  var postRef = db.collection('posts').doc(doc_id);
+  var getDoc = postRef.get()
+      .then(doc => {
+        if (!doc.exists) {
+          return;
+        } else {
+          const docData = doc.data();
+          const html = createHtml(docData.ogp_full_path,doc_id)
+          res.set('Cache-Control', 'public, max-age=600, s-maxage=600')
+          res.status(200).end(html)
+          return;
+        }
+      })
+      .catch(err => {
+        console.log('Error getting document', err);
+      });
+});
+const createHtml = (ogp_full_path) => {
   const SITEURL = "https://haikumaker-5d430.firebaseapp.com/"
   const TITLE = `俳句メーカー`
   const DESCRIPTION = '俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。'
+  const IMAGE = `https://firebasestorage.googleapis.com/v0/b/haikumaker-5d430.appspot.com/o/${ogp_full_path}.jpg?alt=media`
 
-  // const [ , , ogp_id] = req.path.split('/')
-  ogp_name = "109cd480-3240-11e9-a174-7706c524025b"
-  const IMAGE = `https://firebasestorage.googleapis.com/v0/b/haikumaker-5d430.appspot.com/o/${ogp_name}.jpg?alt=media`
-
-  res.status(200).send(`<!doctype html>
+  return `<!doctype html>
     <head>
       <title>${TITLE}</title>
       <meta property="og:title" content="${TITLE}">
@@ -26,8 +46,7 @@ exports.m = functions.https.onRequest((req, res) => {
       <meta name="twitter:description" content="${DESCRIPTION}">
     </head>
     <body>
-    ${'BONG '.repeat(5)}<br>
-    ${IMAGE}<br>
+      <script type="text/javascript">window.location="/";</script>
     </body>
-  </html>`);
-});
+  </html>`
+}
