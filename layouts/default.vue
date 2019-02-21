@@ -1,34 +1,48 @@
 <template>
   <div>
-  <header>
-    <div>
-      <b-navbar toggleable="sm" type="light" variant="light"  class="px-md-5">
-        <b-navbar-brand href="#">
-          <i class="fas fa-paint-brush awsome-green"></i>俳句メーカー
-        </b-navbar-brand>
+    <header>
+      <div>
+        <b-navbar toggleable="sm" type="light" variant="light"  class="px-md-5">
+          <b-navbar-brand href="/">
+            <i class="fas fa-paint-brush awsome-green"></i>俳句メーカー
+          </b-navbar-brand>
 
-        <b-navbar-toggle target="nav_collapse" />
+          <b-navbar-toggle target="nav_collapse" />
 
-        <b-collapse is-nav id="nav_collapse">
-          <b-navbar-nav>
-            <b-nav-item href="#" class="mx-md-1">
-              <i class="fas fa-star awsome-blue"></i> 新着の一句
-            </b-nav-item>
-            <b-nav-item href="#" class="mx-md-1">
-              <i class="far fa-calendar-alt awsome-orange"></i> 今週の一句
-            </b-nav-item>
-            <b-nav-item href="#" class="mx-md-1">
-              <i class="fas fa-crown awsome-darkgoldenrod"></i> 累計の一句
-            </b-nav-item>
-            <b-nav-item href="#" class="mx-md-1">
-              <i class="fas fa-plus awsome-black"></i> 俳句を詠む
-            </b-nav-item>
-          </b-navbar-nav>
-        </b-collapse>
-      </b-navbar>
-    </div>
-  </header>
+          <b-collapse is-nav id="nav_collapse">
+            <b-navbar-nav>
+              <b-nav-item href="#" class="mx-md-1">
+                <i class="fas fa-star awsome-blue"></i> 新着の一句
+              </b-nav-item>
+              <b-nav-item href="#" class="mx-md-1">
+                <i class="far fa-calendar-alt awsome-orange"></i> 今週の一句
+              </b-nav-item>
+              <b-nav-item href="#" class="mx-md-1">
+                <i class="fas fa-crown awsome-darkgoldenrod"></i> 累計の一句
+              </b-nav-item>
+              <b-nav-item href="/create" class="mx-md-1">
+                <i class="fas fa-paint-brush awsome-green"></i> 俳句をつくる
+              </b-nav-item>
+            </b-navbar-nav>
+          </b-collapse>
+        </b-navbar>
+      </div>
+    </header>
     <nuxt/>
+    <footer class="text-center mt-5 mt-lg-4 px-5">
+      <div>
+        開発・運営
+        <img 
+          src="~/assets/img/mitsudama.png" 
+          width="30"
+          height="30"
+          class="pb-1 border-4"
+          alt="mitsudama">
+        <a 
+          href="https://twitter.com/mitudama" 
+          target="_blank">@mitudama</a> Copyright ©2019 All rights reserved.
+      </div>
+    </footer>
   </div>
 </template>
 
