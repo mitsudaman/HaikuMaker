@@ -87,7 +87,7 @@
     class="mt-3">
       <a 
         class="btn btn-block animationBtn btn-tw p-2" 
-        v-bind:href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー&url=https://haikumaker-5d430.firebaseapp.com/m/'+ firebaseFunctionLink"
+        v-bind:href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー&url=https://haikumaker-5d430.firebaseapp.com/m/'+ documentId"
         target="_blank"
         role="button">
         <i class="fab fa-twitter"></i>詠み届ける</a>
@@ -97,6 +97,7 @@
 
 <script>
 import firebase from 'firebase'
+import 'firebase/firestore';
 import canvg from 'canvg';
 import { uuid } from 'vue-uuid';
 
@@ -123,7 +124,7 @@ export default {
       haiku2: 'かきくけこかこ',
       haiku3: 'さしすせそ',
       uuid: uuid.v1(),
-      firebaseFunctionLink: "",
+      documentId: "",
       createLoadFlg: false,
       createdFlg: false
     };
@@ -143,7 +144,8 @@ export default {
       canvg(canvas, data)
       let image = canvas.toDataURL('image/jpeg').split(',')[1]
       createRef.putString(image, 'base64').then((snapshot) =>{
-      console.log('Uploaded a blob or file!');
+        console.log('Uploaded a blob or file!');
+        var date = new Date();
         
         db.collection("posts").add({
           haiku1: this.haiku1,
@@ -152,10 +154,11 @@ export default {
           ogp_full_path: this.uuid,
           read_count: 0,
           tag: 1,
+          created_date: date,
         })
         .then((docRef) => {
             console.log("Document written with ID: ", docRef.id);
-            this.firebaseFunctionLink = docRef.id
+            this.documentId = docRef.id
             this.createdFlg = true;
             this.createLoadFlg = false;
         })
@@ -170,25 +173,5 @@ export default {
 </script>
 
 <style>
-.btn-haiku-create {
-  color: white;
-  background-color: green
-}
-.btn-tw {
-  color: white;
-  background-color: #00aced;
-}
-.animationBtn {
-  animation: animScale 4s infinite ease-out;
-  transform-origin: 50% 50%;
-  animation-play-state:running;
-}
-@keyframes animScale {
-  0% { transform: scale(0.8, 0.8); }
-  10% { transform: scale(1.1, 1.1); }
-  20% { transform: scale(1, 1); }
-  30% { transform: scale(1.1, 1.1); }
-  40% { transform: scale(1, 1); }
-}
 </style>
 

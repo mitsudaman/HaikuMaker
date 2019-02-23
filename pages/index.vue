@@ -1,19 +1,29 @@
 <template>
   <b-container class="px-md-5">
+    <h1 class="text-center mt-3 h2">
+        <i class="fas fa-star awsome-blue"></i> 新着の一句
+    </h1>
     <div 
-    class="card text-center font-weight-bold h1">
+      v-for="row in haikuData"
+      v-bind:key="row.id"
+      class="card text-center font-weight-bold h3 mt-3">
       <div class="card-body">
-        <h5 class="card-title text-primary">＜今日の一句＞</h5>
-        <p class="">飲み会の</p>
-        <p>乾杯直後に</p>
-        <p>バグで帰社</p>
+        <p class="">{{row.haiku1}}</p>
+        <p>{{row.haiku2}}</p>
+        <p>{{row.haiku3}}</p>
       </div>
+    </div>
+    <div class="text-right">
+      <b-button 
+        @click="pageNext()" 
+        class="btn-haiku-create">もっとみる</b-button>
     </div>
   </b-container>
 </template>
 
 <script>
-import firebase from 'firebase'
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 import canvg from 'canvg';
 import { uuid } from 'vue-uuid';
 
@@ -39,10 +49,33 @@ export default {
       haiku1: 'あいうえお',
       haiku2: 'かきくけこかこ',
       haiku3: 'さしすせそ',
+      haikuData: [],
+      lastVisible: null
     };
   },
+  
+  created: function () {
+      var first = db.collection("posts")
+        .orderBy("created_date")
+        .limit(2);
+      return this.getNewPosts(first);
+  },
   methods: {
-    create() {
+    pageNext() {
+      var next = db.collection("posts")
+          .orderBy("created_date")
+          .startAfter(this.lastVisible)
+          .limit(2);
+      this.getNewPosts(next)
+    },
+    getNewPosts(dbCollection) {
+      return dbCollection.get().then((querySnapshot) =>{
+          querySnapshot.forEach((doc) =>{
+              this.haikuData.push(doc.data())
+          });
+          // Get the last visible document
+          this.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1];
+      });
     }
   }
 };

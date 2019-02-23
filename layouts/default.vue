@@ -68,6 +68,26 @@ html {
   max-width: 800px;
 }
 
+.btn-haiku-create {
+  color: white;
+  background-color: green
+}
+.btn-tw {
+  color: white;
+  background-color: #00aced;
+}
+.animationBtn {
+  animation: animScale 4s infinite ease-out;
+  transform-origin: 50% 50%;
+  animation-play-state:running;
+}
+@keyframes animScale {
+  0% { transform: scale(0.8, 0.8); }
+  10% { transform: scale(1.1, 1.1); }
+  20% { transform: scale(1, 1); }
+  30% { transform: scale(1.1, 1.1); }
+  40% { transform: scale(1, 1); }
+}
 
 .awsome-green {color: green}
 .awsome-blue {color: deepskyblue}
