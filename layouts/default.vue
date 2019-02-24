@@ -58,6 +58,11 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  /* background-color:floralwhite; */
+  /* background-color:whitesmoke; */
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;

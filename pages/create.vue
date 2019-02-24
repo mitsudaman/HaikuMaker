@@ -40,16 +40,47 @@
             y="128"
             fill="#000000"
             font-family="HiraginoSans-W5, Hiragino Sans"
-            font-size="100px"
+            font-size="90px"
             letter-spacing="0px"
             stroke-width="2.8"
             word-spacing="0px"
             style="line-height:1.25"
             xml:space="preserve"
           >
-            <tspan x="120" y="150" stroke-width="2.8">{{haiku1}}</tspan>
-            <tspan x="400" y="280" stroke-width="2.8">{{haiku2}}</tspan>
-            <tspan x="850" y="410" stroke-width="2.8">{{haiku3}}</tspan>
+            <tspan x="120" y="140" stroke-width="2.8">{{haiku1}}</tspan>
+            <tspan x="400" y="250" stroke-width="2.8">{{haiku2}}</tspan>
+            <tspan x="800" y="360" stroke-width="2.8">{{haiku3}}</tspan>
+          </text>
+          <text
+            transform="scale(.74407 1.344)"
+            x="0"
+            y="0"
+            fill="#2b7bb9"
+            font-family="HiraginoSans-W5, Hiragino Sans"
+            font-size="40px"
+            letter-spacing="0px"
+            stroke-width="2.8"
+            word-spacing="0px"
+            style="line-height:1.25"
+            xml:space="preserve"
+          >
+            <tspan x="120" y="420" stroke-width="2.8">#IT川柳</tspan>
+          </text>
+          <text
+            transform="scale(.74407 1.344)"
+            x="1520"
+            y="420"
+            fill="#000000"
+            font-family="HiraginoSans-W5, Hiragino Sans"
+            font-size="40px"
+            letter-spacing="0px"
+            stroke-width="2.8"
+            word-spacing="0px"
+            style="line-height:1.25"
+            xml:space="preserve"
+            text-anchor="end"
+          >
+            <tspan stroke-width="2.8">名無しさん</tspan>
           </text>
         </svg>
       </div>

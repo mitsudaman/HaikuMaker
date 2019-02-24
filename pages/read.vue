@@ -114,14 +114,16 @@ export default {
   },
   
   created: function () {
-    console.log(this.$route.params.id)
-    this.documentId = "0NKHhjl4H4oPHtWFGuJu"
-    var docRef = db.collection("posts").doc(this.documentId);
+    var docRef = db.collection("posts").doc(this.$route.query.d);
 
+    // ドキュメント取得
     docRef.get().then(doc => {
         if (doc.exists) {
           this.post = doc.data();
-          // console.log("Document data:", doc.data());
+          // ドキュメント更新
+          docRef.update({
+              "read_count": this.post.read_count+1,
+          })
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");

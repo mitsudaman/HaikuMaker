@@ -7,10 +7,12 @@
       v-for="row in haikuData"
       v-bind:key="row.id"
       class="card text-center font-weight-bold h3 mt-3">
-      <div class="card-body">
+      <div class="card-body p-3">
         <p class="">{{row.haiku1}}</p>
         <p>{{row.haiku2}}</p>
         <p>{{row.haiku3}}</p>
+        <!-- <p>{{row.read_count}}</p>
+        <p>{{row.created_date}}</p> -->
       </div>
     </div>
     <div class="text-right">
@@ -55,15 +57,17 @@ export default {
   },
   
   created: function () {
+      var date = new Date();
+      // var yesterday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-1, 0, 0);
       var first = db.collection("posts")
-        .orderBy("created_date")
-        .limit(2);
+        .orderBy("created_date","desc")
+        .limit(10);
       return this.getNewPosts(first);
   },
   methods: {
     pageNext() {
       var next = db.collection("posts")
-          .orderBy("created_date")
+          .orderBy("created_date","desc")
           .startAfter(this.lastVisible)
           .limit(2);
       this.getNewPosts(next)
