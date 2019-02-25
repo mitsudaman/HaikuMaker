@@ -1,7 +1,10 @@
 <template>
   <b-container class="px-md-5">
-    <div class="pt-1">
-      <p class="mt-3 font-weight-bold">ここで一句・・・</p>
+    <h1 class="text-center mt-3 h2">
+        <i class="fas fa-paint-brush awsome-green"></i> 俳句をつくる
+    </h1>
+    <div>
+      <p class="font-weight-bold">ここで一句・・・</p>
       <div 
         id="svg_demo" 
         class="text-center border rounded border-dark mt-3 ">
@@ -80,25 +83,46 @@
             xml:space="preserve"
             text-anchor="end"
           >
-            <tspan stroke-width="2.8">名無しさん</tspan>
+            <tspan stroke-width="2.8">{{name}}</tspan>
           </text>
         </svg>
       </div>
     </div>
     <div class="mt-4 font-weight-bold">
-      <b-form-group label="上の句:">
-        <b-form-input v-model="haiku1" required></b-form-input>
-      </b-form-group>
-    </div>
-    <div class="mt-2 font-weight-bold">
-      <b-form-group label="中の句:">
-        <b-form-input v-model="haiku2" required></b-form-input>
-      </b-form-group>
-    </div>
-    <div class="mt-2 font-weight-bold">
-      <b-form-group label="下の句:">
-        <b-form-input v-model="haiku3" required></b-form-input>
-      </b-form-group>
+      <div class="row">
+        <div class="col-md-4">
+          <b-form-group label="上の句:">
+            <b-form-input v-model="haiku1" required></b-form-input>
+          </b-form-group>
+        </div>
+        <div class="col-md-4">
+          <b-form-group label="中の句:">
+            <b-form-input v-model="haiku2" required></b-form-input>
+          </b-form-group>
+        </div>
+        <div class="col-md-4">
+          <b-form-group label="下の句:">
+            <b-form-input v-model="haiku3" required></b-form-input>
+          </b-form-group>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <!-- <b-form-group label="上の句:">
+            <b-form-input v-model="haiku1" required></b-form-input>
+          </b-form-group> -->
+        </div>
+        <div class="col-md-4">
+          <!-- <b-form-group label="中の句:">
+            <b-form-input v-model="haiku2" required></b-form-input>
+          </b-form-group> -->
+        </div>
+        <div class="col-md-4">
+          <b-form-group label="名前:">
+            <b-form-input v-model="name" required></b-form-input>
+          </b-form-group>
+        </div>
+      </div>
     </div>
     <div class="text-right">
       <b-button 
@@ -118,7 +142,7 @@
     class="mt-3">
       <a 
         class="btn btn-block animationBtn btn-tw p-2" 
-        v-bind:href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー&url=https://haikumaker-5d430.firebaseapp.com/m/'+ documentId"
+        v-bind:href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー&url=https://www.haiku-maker.site/m/'+ documentId"
         target="_blank"
         role="button">
         <i class="fab fa-twitter"></i>詠み届ける</a>
@@ -154,6 +178,7 @@ export default {
       haiku1: 'あいうえお',
       haiku2: 'かきくけこかこ',
       haiku3: 'さしすせそ',
+      name: '名無しさん',
       uuid: uuid.v1(),
       documentId: "",
       createLoadFlg: false,
@@ -182,6 +207,7 @@ export default {
           haiku1: this.haiku1,
           haiku2: this.haiku2,
           haiku3: this.haiku3,
+          name: this.name,
           ogp_full_path: this.uuid,
           read_count: 0,
           tag: 1,

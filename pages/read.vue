@@ -58,7 +58,7 @@
     class="mt-5">
       <a 
         class="btn btn-block animationBtn btn-tw p-2" 
-        v-bind:href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー&url=https://haikumaker-5d430.firebaseapp.com/m/'+ documentId"
+        v-bind:href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー&url=https://www.haiku-maker.site/m/'+ documentId"
         target="_blank"
         role="button">
         <i class="fab fa-twitter"></i>詠み届ける</a>

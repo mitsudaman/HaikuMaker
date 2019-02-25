@@ -25,7 +25,7 @@ exports.m = functions.https.onRequest((req, res) => {
       });
 });
 const createHtml = (ogp_full_path) => {
-  const SITEURL = "https://haikumaker-5d430.firebaseapp.com/"
+  const SITEURL = "https://www.haiku-maker.site/"
   const TITLE = `俳句メーカー`
   const DESCRIPTION = '俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。'
   const IMAGE = `https://firebasestorage.googleapis.com/v0/b/haikumaker-5d430.appspot.com/o/${ogp_full_path}.jpg?alt=media`

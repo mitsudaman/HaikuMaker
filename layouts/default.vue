@@ -2,7 +2,7 @@
   <div>
     <header>
       <div>
-        <b-navbar toggleable="sm" type="light" variant="light"  class="px-md-5">
+        <b-navbar toggleable="sm" type="light" variant="light"  class="px-md-5 bg-white">
           <b-navbar-brand href="/">
             <i class="fas fa-paint-brush awsome-green"></i>俳句メーカー
           </b-navbar-brand>
@@ -10,7 +10,7 @@
           <b-navbar-toggle target="nav_collapse" />
 
           <b-collapse is-nav id="nav_collapse">
-            <b-navbar-nav>
+            <b-navbar-nav class=" text-right">
               <b-nav-item href="#" class="mx-md-1">
                 <i class="fas fa-star awsome-blue"></i> 新着の一句
               </b-nav-item>
@@ -18,7 +18,7 @@
                 <i class="far fa-calendar-alt awsome-orange"></i> 今週の一句
               </b-nav-item>
               <b-nav-item href="#" class="mx-md-1">
-                <i class="fas fa-crown awsome-darkgoldenrod"></i> 累計の一句
+                <i class="fas fa-crown awsome-darkgoldenrod"></i> ランキング
               </b-nav-item>
               <b-nav-item href="/create" class="mx-md-1">
                 <i class="fas fa-paint-brush awsome-green"></i> 俳句をつくる
@@ -60,7 +60,7 @@ html {
 
 body {
   /* background-color:floralwhite; */
-  /* background-color:whitesmoke; */
+  background-color:whitesmoke;
 }
 
 *, *:before, *:after {
@@ -68,6 +68,10 @@ body {
   margin: 0;
 }
 
+h1 {
+  /* padding-bottom: 10px;
+  border-bottom: solid 1px #000000; */
+}
 
 .container {
   max-width: 800px;
@@ -92,6 +96,10 @@ body {
   20% { transform: scale(1, 1); }
   30% { transform: scale(1.1, 1.1); }
   40% { transform: scale(1, 1); }
+}
+
+.bg-white {
+  background-color: white;
 }
 
 .awsome-green {color: green}
