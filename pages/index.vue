@@ -26,11 +26,26 @@
         <div class="row no-gutters">
           <div class="col-0 col-md-4">
           </div>
-          <div class="col-8 col-md-6 font-weight-bold h3">
+          <div class="col-9 col-md-6 font-weight-bold h3">
             {{row.data.haiku3}}
           </div>
-          <div class="col-4 col-md-2 pr-2 pt-3 text-right">
+          <div class="col-3 col-md-2 pr-2 pt-3 text-right">
              <a :href="'/read/?d=' + row.documentId ">>>詳細</a>
+          </div>
+        </div>
+        <div 
+        v-if="row.data.tags"
+        class="row no-gutters">
+          <div class="col-9 pl-md-4">
+            <a 
+            v-if="row.data.tags[0]"
+            href="/">#{{row.data.tags[0]}}</a>
+            <a 
+            v-if="row.data.tags[1]"
+            href="/">#{{row.data.tags[1]}}</a>
+            <a 
+            v-if="row.data.tags[2]"
+            href="/">#{{row.data.tags[2]}}</a>
           </div>
         </div>
       </div>
@@ -47,7 +62,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import canvg from 'canvg';
-import { uuid } from 'vue-uuid';
 
 // Webコンソールから取得したコンフィグをペースト
 var config = {

@@ -67,7 +67,15 @@
             style="line-height:1.25"
             xml:space="preserve"
           >
-            <tspan x="120" y="420" stroke-width="2.8">#IT川柳</tspan>
+            <tspan 
+            v-if="tags[0]"
+            x="120" y="420" stroke-width="2.8">
+            #{{tags[0]}}
+            <template
+            v-if="tags[1]">#{{tags[1]}}</template>
+            <template
+            v-if="tags[2]">#{{tags[2]}}</template>
+            </tspan>
           </text>
           <text
             transform="scale(.74407 1.344)"
@@ -91,34 +99,40 @@
     <div class="mt-4 font-weight-bold">
       <div class="row">
         <div class="col-md-4">
-          <b-form-group label="上の句:">
-            <b-form-input v-model="haiku1" required></b-form-input>
+          <b-form-group label="上の句">
+            <!-- <b-form-input v-model="haiku1" required></b-form-input> -->
+            <input 
+              class="form-control" 
+              v-model="haiku1">
           </b-form-group>
         </div>
         <div class="col-md-4">
-          <b-form-group label="中の句:">
-            <b-form-input v-model="haiku2" required></b-form-input>
+          <b-form-group label="中の句">
+            <!-- <b-form-input v-model="haiku2" required></b-form-input> -->
+            <input 
+              class="form-control" 
+              v-model="haiku2">
           </b-form-group>
         </div>
         <div class="col-md-4">
-          <b-form-group label="下の句:">
-            <b-form-input v-model="haiku3" required></b-form-input>
+          <b-form-group label="下の句">
+            <!-- <b-form-input v-model="haiku3" required></b-form-input> -->
+            <input 
+              class="form-control" 
+              v-model="haiku3">
           </b-form-group>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4">
-          <!-- <b-form-group label="上の句:">
-            <b-form-input v-model="haiku1" required></b-form-input>
-          </b-form-group> -->
+        <div class="col-md-8">
+          <b-form-group label="タグ">
+            <input-tag
+            v-model="tags"
+            :limit=3></input-tag>            
+          </b-form-group>
         </div>
         <div class="col-md-4">
-          <!-- <b-form-group label="中の句:">
-            <b-form-input v-model="haiku2" required></b-form-input>
-          </b-form-group> -->
-        </div>
-        <div class="col-md-4">
-          <b-form-group label="名前:">
+          <b-form-group label="名前">
             <b-form-input v-model="name" required></b-form-input>
           </b-form-group>
         </div>
@@ -155,6 +169,7 @@ import firebase from 'firebase'
 import 'firebase/firestore';
 import canvg from 'canvg';
 import { uuid } from 'vue-uuid';
+import InputTag from 'vue-input-tag'
 
 // Webコンソールから取得したコンフィグをペースト
 var config = {
@@ -172,12 +187,14 @@ var db = firebase.firestore();
 
 export default {
   components: {
+    InputTag
   },
   data() {
     return {
       haiku1: 'あいうえお',
       haiku2: 'かきくけこかこ',
       haiku3: 'さしすせそ',
+      tags:[],
       name: '名無しさん',
       uuid: uuid.v1(),
       documentId: "",
@@ -210,7 +227,8 @@ export default {
           name: this.name,
           ogp_full_path: this.uuid,
           read_count: 0,
-          tag: 1,
+          tags: this.tags,
+          type: 1,
           created_date: date,
         })
         .then((docRef) => {
@@ -230,5 +248,17 @@ export default {
 </script>
 
 <style>
+.vue-input-tag-wrapper{
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+.vue-input-tag-wrapper .input-tag {
+    background-color: #e8edf1;
+    border: none;
+    color: #5B87AD;
+}
+.vue-input-tag-wrapper .input-tag .remove {
+    color: #5B87AD;
+}
 </style>
 

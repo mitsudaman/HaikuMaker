@@ -1,59 +1,99 @@
 <template>
   <b-container class="px-md-5">
     <h2 class="text-center mt-3 h2">
-        <i class="fas fa-star awsome-blue"></i> tag
+        <i class="fas fa-star awsome-blue"></i> 俳句を詠む
     </h2>
     <div 
-      id="svg_demo" 
-      class="text-center border rounded border-dark mt-3 ">
-      <svg
-        version="1.1"
-        viewBox="0 0 1200 630"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:cc="http://creativecommons.org/ns#"
-        xmlns:dc="http://purl.org/dc/elements/1.1/"
-        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-        ref="svgCard"
-      >
-        <metadata>
-          <rdf:RDF>
-            <cc:Work rdf:about>
-              <dc:format>image/svg+xml</dc:format>
-              <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
-              <dc:title></dc:title>
-            </cc:Work>
-          </rdf:RDF>
-        </metadata>
-        <g transform="matrix(1.0065 0 0 1.0174 -2.1136 332.78)">
-          <rect
-            x="24.335"
-            y="-306.15"
-            width="1157.5"
-            height="582.69"
-            fill="#fff"
-            stroke="#72cd0f"
-            stroke-width="44.234"
-          ></rect>
-        </g>
-        <text
-          transform="scale(.74407 1.344)"
-          x="124"
-          y="128"
-          fill="#000000"
-          font-family="HiraginoSans-W5, Hiragino Sans"
-          font-size="100px"
-          letter-spacing="0px"
-          stroke-width="2.8"
-          word-spacing="0px"
-          style="line-height:1.25"
-          xml:space="preserve"
+        id="svg_demo" 
+        class="text-center border rounded border-dark mt-3 ">
+        <svg
+          version="1.1"
+          viewBox="0 0 1200 630"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:cc="http://creativecommons.org/ns#"
+          xmlns:dc="http://purl.org/dc/elements/1.1/"
+          xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          ref="svgCard"
         >
-          <tspan x="120" y="150" stroke-width="2.8">{{post.haiku1}}</tspan>
-          <tspan x="400" y="280" stroke-width="2.8">{{post.haiku2}}</tspan>
-          <tspan x="850" y="410" stroke-width="2.8">{{post.haiku3}}</tspan>
-        </text>
-      </svg>
-    </div>
+          <metadata>
+            <rdf:RDF>
+              <cc:Work rdf:about>
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
+                <dc:title></dc:title>
+              </cc:Work>
+            </rdf:RDF>
+          </metadata>
+          <g transform="matrix(1.0065 0 0 1.0174 -2.1136 332.78)">
+            <rect
+              x="24.335"
+              y="-306.15"
+              width="1157.5"
+              height="582.69"
+              fill="#fff"
+              stroke="#72cd0f"
+              stroke-width="44.234"
+            ></rect>
+          </g>
+          <text
+            transform="scale(.74407 1.344)"
+            x="124"
+            y="128"
+            fill="#000000"
+            font-family="HiraginoSans-W5, Hiragino Sans"
+            font-size="90px"
+            letter-spacing="0px"
+            stroke-width="2.8"
+            word-spacing="0px"
+            style="line-height:1.25"
+            xml:space="preserve"
+          >
+            <tspan x="120" y="140" stroke-width="2.8">{{post.haiku1}}</tspan>
+            <tspan x="400" y="250" stroke-width="2.8">{{post.haiku2}}</tspan>
+            <tspan x="800" y="360" stroke-width="2.8">{{post.haiku3}}</tspan>
+          </text>
+          <text
+            v-if="post.tags"
+            transform="scale(.74407 1.344)"
+            x="0"
+            y="0"
+            fill="#2b7bb9"
+            font-family="HiraginoSans-W5, Hiragino Sans"
+            font-size="40px"
+            letter-spacing="0px"
+            stroke-width="2.8"
+            word-spacing="0px"
+            style="line-height:1.25"
+            xml:space="preserve"
+          >
+            <tspan 
+            v-if="post.tags[0]"
+            x="120" y="420" stroke-width="2.8">
+            #{{post.tags[0]}}
+            <template
+            v-if="post.tags[1]">#{{post.tags[1]}}</template>
+            <template
+            v-if="post.tags[2]">#{{post.tags[2]}}</template>
+            </tspan>
+          </text>
+          <text
+            transform="scale(.74407 1.344)"
+            x="1520"
+            y="420"
+            fill="#000000"
+            font-family="HiraginoSans-W5, Hiragino Sans"
+            font-size="40px"
+            letter-spacing="0px"
+            stroke-width="2.8"
+            word-spacing="0px"
+            style="line-height:1.25"
+            xml:space="preserve"
+            text-anchor="end"
+          >
+            <tspan stroke-width="2.8">{{post.name}}</tspan>
+          </text>
+        </svg>
+      </div>
     <div 
     class="mt-5">
       <a 
@@ -63,8 +103,8 @@
         role="button">
         <i class="fab fa-twitter"></i>詠み届ける</a>
     </div>
-    <div 
-      v-for="row in haikuData"
+    <!-- <div 
+      v-for="row in haikuList"
       v-bind:key="row.id"
       class="card text-center font-weight-bold h3 mt-3">
       <div class="card-body">
@@ -77,7 +117,7 @@
       <b-button 
         @click="pageNext()" 
         class="btn-haiku-create">もっとみる</b-button>
-    </div>
+    </div> -->
   </b-container>
 </template>
 
@@ -107,7 +147,7 @@ export default {
   data() {
     return {
       post: {},
-      haikuData: [],
+      haikuList: [],
       documentId: '',
       lastVisible: null
     };
@@ -148,7 +188,7 @@ export default {
     getNewPosts(dbCollection) {
       return dbCollection.get().then((querySnapshot) =>{
           querySnapshot.forEach((doc) =>{
-              this.haikuData.push(doc.data())
+              this.haikuList.push(doc.data())
           });
           // Get the last visible document
           this.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1];
