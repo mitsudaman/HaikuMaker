@@ -1,7 +1,7 @@
 <template>
   <b-container class="px-md-5">
     <h2 class="text-center mt-3 h2">
-        <i class="fas fa-star awsome-blue"></i> 俳句を詠む
+        <i class="fas fa-book awsome-green"></i> 俳句を詠む
     </h2>
     <div 
         id="svg_demo" 
@@ -103,21 +103,6 @@
         role="button">
         <i class="fab fa-twitter"></i>詠み届ける</a>
     </div>
-    <!-- <div 
-      v-for="row in haikuList"
-      v-bind:key="row.id"
-      class="card text-center font-weight-bold h3 mt-3">
-      <div class="card-body">
-        <p class="">{{row.haiku1}}</p>
-        <p>{{row.haiku2}}</p>
-        <p>{{row.haiku3}}</p>
-      </div>
-    </div>
-    <div class="text-right">
-      <b-button 
-        @click="pageNext()" 
-        class="btn-haiku-create">もっとみる</b-button>
-    </div> -->
   </b-container>
 </template>
 
@@ -125,7 +110,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import canvg from 'canvg';
-import { uuid } from 'vue-uuid';
 
 // Webコンソールから取得したコンフィグをペースト
 var config = {
@@ -171,29 +155,8 @@ export default {
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });
-
-    var first = db.collection("posts")
-      .orderBy("created_date")
-      .limit(2);
-    return this.getNewPosts(first);
   },
   methods: {
-    pageNext() {
-      var next = db.collection("posts")
-          .orderBy("created_date")
-          .startAfter(this.lastVisible)
-          .limit(2);
-      this.getNewPosts(next)
-    },
-    getNewPosts(dbCollection) {
-      return dbCollection.get().then((querySnapshot) =>{
-          querySnapshot.forEach((doc) =>{
-              this.haikuList.push(doc.data())
-          });
-          // Get the last visible document
-          this.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1];
-      });
-    }
   }
 };
 </script>

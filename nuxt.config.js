@@ -4,12 +4,23 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'front',
+    title: '俳句メーカー',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { hid: 'description', name: 'description', content: 'Nuxt.js project' },
+      { property: 'og:title', content: '俳句メーカー' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:description', content: '俳句メーカー。俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。' },
+      { property: 'og:url', content: 'https://www.haiku-maker.site/' },
+      { property: 'og:site_name', content: '俳句メーカー' },
+      { property: 'og:image', content: 'https://www.haiku-maker.site/OGP.png' },
+      { name: 'twitter:site', content: '@mitudama' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
+    htmlAttrs: {
+      prefix: 'og: http://ogp.me/ns#'
+    },
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]

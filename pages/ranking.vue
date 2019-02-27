@@ -1,11 +1,8 @@
 <template>
   <b-container class="px-md-5">
     <h1 class="text-center mt-3 h2">
-        <i class="fas fa-paint-brush awsome-green"></i> 俳句メーカー
+        <i class="fas fa-crown awsome-darkgoldenrod"></i> ランキング
     </h1>
-    <h2 class="text-center mt-3 h3">
-        新着の一句
-    </h2>
     <div 
       v-for="row in haikuData"
       v-bind:key="row.id"
@@ -91,16 +88,23 @@ export default {
   },
   
   created: function () {
-      return this.getNewPosts(true);
+      return this.getRankPosts(true);
   },
   methods: {
     pageNext() {
-      this.getNewPosts(false)
+      this.getRankPosts(false)
     },
-    getNewPosts(firstFlg) {
+    getRankPosts(firstFlg) {
       var dbCollection = db.collection("posts")
-        .orderBy("created_date","desc")
+      // tag 有りの場合
+      if(this.$route.query.t != null){
+        dbCollection = dbCollection.where("tags","array-contains",this.$route.query.t)
+      }
+
+      dbCollection = dbCollection
+        .orderBy("read_count","desc")
         .limit(10);
+
       // もっと詠む 時
       if(!firstFlg){
         dbCollection = dbCollection.startAfter(this.lastVisible);

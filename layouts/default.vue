@@ -11,17 +11,17 @@
 
           <b-collapse is-nav id="nav_collapse">
             <b-navbar-nav class=" text-right">
-              <b-nav-item href="#" class="mx-md-1">
-                <i class="fas fa-star awsome-blue"></i> 新着の一句
+              <b-nav-item href="/" class="mx-md-1">
+                <i class="fas fa-star awsome-blue"></i> トップ
               </b-nav-item>
               <b-nav-item href="#" class="mx-md-1">
-                <i class="far fa-calendar-alt awsome-orange"></i> 今週の一句
+                <i class="fas fa-trophy awsome-orange"></i> コンテスト(準備中)
               </b-nav-item>
-              <b-nav-item href="#" class="mx-md-1">
+              <b-nav-item href="/ranking" class="mx-md-1">
                 <i class="fas fa-crown awsome-darkgoldenrod"></i> ランキング
               </b-nav-item>
               <b-nav-item href="/create" class="mx-md-1">
-                <i class="fas fa-paint-brush awsome-green"></i> 俳句をつくる
+                <i class="fas fa-pencil-alt awsome-green"></i> 俳句をつくる
               </b-nav-item>
             </b-navbar-nav>
           </b-collapse>

@@ -1,7 +1,7 @@
 <template>
   <b-container class="px-md-5">
     <h1 class="text-center mt-3 h2">
-        <i class="fas fa-paint-brush awsome-green"></i> 俳句をつくる
+        <i class="fas fa-pencil-alt awsome-green"></i> 俳句をつくる
     </h1>
     <div>
       <p class="font-weight-bold">ここで一句・・・</p>
@@ -140,13 +140,14 @@
     </div>
     <div class="text-right">
       <b-button 
+        :disabled="createdFlg"
         @click="create()" 
         class="btn-haiku-create">
         <i 
         v-if="!createLoadFlg"
-        class="fas fa-paint-brush"></i> 
+        class="fas fa-pencil-alt"></i> 
         <span
-          v-if="createLoadFlg" 
+          v-if="createLoadFlg"
           class="spinner-border spinner-border-sm" 
           role="status" 
           aria-hidden="true"></span>俳句つくる</b-button>

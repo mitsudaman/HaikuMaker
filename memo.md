@@ -192,3 +192,8 @@ https://firebase.google.com/docs/firestore/quickstart?hl=ja
 
 ▼Cloud Firestore でデータを取得する
 https://firebase.google.com/docs/firestore/query-data/get-data?hl=ja
+
+
+
+      // var date = new Date();
+      // var six_days_ago = new Date(date.getFullYear(), date.getMonth(), date.getDate()-6, 0, 0);
