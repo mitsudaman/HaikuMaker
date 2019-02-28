@@ -1,7 +1,7 @@
 <template>
   <b-container class="px-md-5">
     <h2 class="text-center mt-3 h2">
-        <i class="fas fa-book awsome-green"></i> 俳句を詠む
+        <i class="fas fa-book awesome-green"></i> 俳句を詠む
     </h2>
     <div 
         id="svg_demo" 

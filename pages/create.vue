@@ -1,7 +1,7 @@
 <template>
   <b-container class="px-md-5">
     <h1 class="text-center mt-3 h2">
-        <i class="fas fa-pencil-alt awsome-green"></i> 俳句をつくる
+        <i class="fas fa-pencil-alt awesome-green"></i> 俳句をつくる
     </h1>
     <div>
       <p class="font-weight-bold">ここで一句・・・</p>

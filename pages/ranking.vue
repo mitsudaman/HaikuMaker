@@ -1,7 +1,7 @@
 <template>
   <b-container class="px-md-5">
     <h1 class="text-center mt-3 h2">
-        <i class="fas fa-crown awsome-darkgoldenrod"></i> ランキング
+        <i class="fas fa-crown awesome-darkgoldenrod"></i> ランキング
     </h1>
     <div 
       v-for="row in haikuData"

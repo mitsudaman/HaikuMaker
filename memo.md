@@ -70,7 +70,7 @@ https://github.com/SugarShootingStar/visualization-twitter-grass/blob/bafb35d58f
 あざああああす！
 
 --------------------------------------------
-◾fontawsome
+◾fontawesome
 https://yinm.info/20181008/
 https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers
 
