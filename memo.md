@@ -89,7 +89,7 @@ https://github.com/VitorLuizC/vue-uuid
 ◾firebase に hosting
 
 ▼Docker×Nuxt×Firebaseを使ってSPAxPWAのWEBアプリ開発環境を構築する
-https://www.brdisavesoft.co.jp/blog/archives/3942
+https://www.bravesoft.co.jp/blog/archives/3942
 
 コンテナ内で・・・
 /TSMaker/front # yarn global add firebase-tools

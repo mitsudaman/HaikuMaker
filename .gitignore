@@ -13,3 +13,6 @@ dist
 # etc
 .DS_Store
 .env
+
+# service worker
+sw.*

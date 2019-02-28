@@ -13,6 +13,8 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/google-analytics": "^2.1.0",
+    "@nuxtjs/pwa": "^3.0.0-beta.8",
     "bootstrap-vue": "^2.0.0-rc.11",
     "canvg": "^1.5.3",
     "firebase": "^5.8.3",

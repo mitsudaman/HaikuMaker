@@ -52,13 +52,14 @@ module.exports = {
   ],
   modules: [
     'bootstrap-vue/nuxt',
-
-    // Or if you have custom bootstrap CSS...
-    // ['bootstrap-vue/nuxt', { css: false }],
-    // // google analytics 
-    // ['@nuxtjs/google-analytics', {
-    //   id: ''
-    // }]
+    '@nuxtjs/pwa',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-117897189-2'
+    }]
   ],
+  manifest: {
+    name: "俳句メーカー",
+    lang: 'ja'
+  }
 }
 
