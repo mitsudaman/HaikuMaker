@@ -96,45 +96,50 @@
         </svg>
       </div>
     </div>
-    <div class="mt-4 font-weight-bold">
+    <div class="mt-4">
       <div class="row">
         <div class="col-md-4">
-          <b-form-group label="上の句">
-            <!-- <b-form-input v-model="haiku1" required></b-form-input> -->
-            <input 
-              class="form-control" 
-              v-model="haiku1">
-          </b-form-group>
+          <div class="form-group">
+            <label class="font-weight-bold">上の句</label>
+            <input  
+              v-model="haiku1"
+              class="form-control">
+          </div>
         </div>
         <div class="col-md-4">
-          <b-form-group label="中の句">
-            <!-- <b-form-input v-model="haiku2" required></b-form-input> -->
-            <input 
-              class="form-control" 
-              v-model="haiku2">
-          </b-form-group>
+          <div class="form-group">
+            <label class="font-weight-bold">中の句</label>
+            <input  
+              v-model="haiku2"
+              class="form-control">
+          </div>
         </div>
         <div class="col-md-4">
-          <b-form-group label="下の句">
-            <!-- <b-form-input v-model="haiku3" required></b-form-input> -->
-            <input 
-              class="form-control" 
-              v-model="haiku3">
-          </b-form-group>
+          <div class="form-group">
+            <label class="font-weight-bold">下の句</label>
+            <input  
+              v-model="haiku3"
+              class="form-control">
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-8">
-          <b-form-group label="タグ">
+          <div class="form-group">
+            <label class="font-weight-bold">タグ</label>
+            <span> ※3つまで</span>
             <input-tag
             v-model="tags"
-            :limit=3></input-tag>            
-          </b-form-group>
+            :limit=3></input-tag> 
+          </div>
         </div>
         <div class="col-md-4">
-          <b-form-group label="名前">
-            <b-form-input v-model="name" required></b-form-input>
-          </b-form-group>
+          <div class="form-group">
+            <label class="font-weight-bold">名前</label>
+            <input  
+              v-model="name"
+              class="form-control">
+          </div>
         </div>
       </div>
     </div>
@@ -158,7 +163,7 @@
       <a 
         class="btn btn-block animationBtn btn-tw p-2" 
         v-bind:href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー&url=https://www.haiku-maker.site/m/'+ documentId"
-        target="_blank"
+        target="_blank" rel="noopener"
         role="button">
         <i class="fab fa-twitter"></i>詠み届ける</a>
     </div>
@@ -192,9 +197,9 @@ export default {
   },
   data() {
     return {
-      haiku1: 'あいうえお',
-      haiku2: 'かきくけこかこ',
-      haiku3: 'さしすせそ',
+      haiku1: '',
+      haiku2: '',
+      haiku3: '',
       tags:[],
       name: '名無しさん',
       uuid: uuid.v1(),

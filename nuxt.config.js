@@ -14,7 +14,7 @@ module.exports = {
       { property: 'og:description', content: '俳句メーカー。俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。' },
       { property: 'og:url', content: 'https://www.haiku-maker.site/' },
       { property: 'og:site_name', content: '俳句メーカー' },
-      { property: 'og:image', content: 'https://www.haiku-maker.site/OGP.png' },
+      { property: 'og:image', content: 'https://www.haiku-maker.site/ogp.jpg' },
       { name: 'twitter:site', content: '@mitudama' },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],

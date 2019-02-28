@@ -4,7 +4,7 @@
       <div>
         <b-navbar toggleable="sm" type="light" variant="light"  class="px-md-5 bg-white">
           <b-navbar-brand href="/">
-            <i class="fas fa-paint-brush awsome-green"></i>俳句メーカー
+            <i class="fas fa-paint-brush awesome-green"></i>俳句メーカー
           </b-navbar-brand>
 
           <b-navbar-toggle target="nav_collapse" />
@@ -12,16 +12,16 @@
           <b-collapse is-nav id="nav_collapse">
             <b-navbar-nav class=" text-right">
               <b-nav-item href="/" class="mx-md-1">
-                <i class="fas fa-star awsome-blue"></i> トップ
+                <i class="fas fa-star awesome-blue"></i> トップ
               </b-nav-item>
               <b-nav-item href="#" class="mx-md-1">
-                <i class="fas fa-trophy awsome-orange"></i> コンテスト(準備中)
+                <i class="fas fa-trophy awesome-orange"></i> コンテスト(準備中)
               </b-nav-item>
               <b-nav-item href="/ranking" class="mx-md-1">
-                <i class="fas fa-crown awsome-darkgoldenrod"></i> ランキング
+                <i class="fas fa-crown awesome-darkgoldenrod"></i> ランキング
               </b-nav-item>
               <b-nav-item href="/create" class="mx-md-1">
-                <i class="fas fa-pencil-alt awsome-green"></i> 俳句をつくる
+                <i class="fas fa-pencil-alt awesome-green"></i> 俳句をつくる
               </b-nav-item>
             </b-navbar-nav>
           </b-collapse>
@@ -40,7 +40,7 @@
           alt="mitsudama">
         <a 
           href="https://twitter.com/mitudama" 
-          target="_blank">@mitudama</a> Copyright ©2019 All rights reserved.
+          target="_blank" rel="noopener">@mitudama</a> Copyright ©2019 All rights reserved.
       </div>
     </footer>
   </div>
@@ -102,10 +102,11 @@ h1 {
   background-color: white;
 }
 
-.awsome-green {color: green}
-.awsome-blue {color: deepskyblue}
-.awsome-orange {color:orange}
-.awsome-darkgoldenrod {color:darkgoldenrod}
-.awsome-black {color: black}
+.awesome-green {color: green}
+.awesome-red {color: red}
+.awesome-blue {color: deepskyblue}
+.awesome-orange {color:orange}
+.awesome-darkgoldenrod {color:darkgoldenrod}
+.awesome-black {color: black}
 </style>
 

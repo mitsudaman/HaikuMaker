@@ -98,8 +98,8 @@
     class="mt-5">
       <a 
         class="btn btn-block animationBtn btn-tw p-2" 
-        v-bind:href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー&url=https://www.haiku-maker.site/m/'+ documentId"
-        target="_blank"
+        v-bind:href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー&url=https://www.haiku-maker.site/m/'+ this.$route.query.d"
+        target="_blank" rel="noopener"
         role="button">
         <i class="fab fa-twitter"></i>詠み届ける</a>
     </div>
@@ -132,7 +132,6 @@ export default {
     return {
       post: {},
       haikuList: [],
-      documentId: '',
       lastVisible: null
     };
   },
