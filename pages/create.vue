@@ -38,29 +38,56 @@
             ></rect>
           </g>
           <text
-            transform="scale(.74407 1.344)"
-            x="124"
-            y="128"
+            x="8%"
+            y="30%"
             fill="#000000"
             font-family="HiraginoSans-W5, Hiragino Sans"
-            font-size="90px"
+            font-size="100px"
             letter-spacing="0px"
             stroke-width="2.8"
             word-spacing="0px"
             style="line-height:1.25"
             xml:space="preserve"
           >
-            <tspan x="120" y="140" stroke-width="2.8">{{haiku1}}</tspan>
-            <tspan x="400" y="250" stroke-width="2.8">{{haiku2}}</tspan>
-            <tspan x="800" y="360" stroke-width="2.8">{{haiku3}}</tspan>
+            <tspan>{{haiku1}}</tspan>
+          </text>
+
+          <text
+            x="50%" 
+            y="52%" 
+            fill="#000000"
+            font-family="HiraginoSans-W5, Hiragino Sans"
+            font-size="100px"
+            letter-spacing="0px"
+            stroke-width="2.8"
+            word-spacing="0px"
+            style="line-height:1.25"
+            xml:space="preserve"
+            text-anchor="middle"
+          >
+            <tspan>{{haiku2}}</tspan>
           </text>
           <text
-            transform="scale(.74407 1.344)"
-            x="0"
-            y="0"
+            x="90%" 
+            y="74%" 
+            fill="#000000"
+            font-family="HiraginoSans-W5, Hiragino Sans"
+            font-size="100px"
+            letter-spacing="0px"
+            stroke-width="2.8"
+            word-spacing="0px"
+            style="line-height:1.25"
+            xml:space="preserve"
+            text-anchor="end"
+          >
+            <tspan>{{haiku3}}</tspan>
+          </text>
+          <text
+            x="5%"
+            y="90%"
             fill="#2b7bb9"
             font-family="HiraginoSans-W5, Hiragino Sans"
-            font-size="40px"
+            font-size="50px"
             letter-spacing="0px"
             stroke-width="2.8"
             word-spacing="0px"
@@ -68,8 +95,7 @@
             xml:space="preserve"
           >
             <tspan 
-            v-if="tags[0]"
-            x="120" y="420" stroke-width="2.8">
+            v-if="tags[0]">
             #{{tags[0]}}
             <template
             v-if="tags[1]">#{{tags[1]}}</template>
@@ -78,12 +104,11 @@
             </tspan>
           </text>
           <text
-            transform="scale(.74407 1.344)"
-            x="1520"
-            y="420"
+            x="95%"
+            y="90%"
             fill="#000000"
             font-family="HiraginoSans-W5, Hiragino Sans"
-            font-size="40px"
+            font-size="50px"
             letter-spacing="0px"
             stroke-width="2.8"
             word-spacing="0px"
@@ -145,7 +170,7 @@
     </div>
     <div class="text-right">
       <b-button 
-        :disabled="createdFlg"
+        :disabled="!createValidFlg || createdFlg"
         @click="create()" 
         class="btn-haiku-create">
         <i 
@@ -207,6 +232,11 @@ export default {
       createLoadFlg: false,
       createdFlg: false
     };
+  },
+  computed: {
+    createValidFlg () { 
+      return this.haiku1.length > 0 && this.haiku2.length > 0 && this.haiku3.length > 0
+    }
   },
   methods: {
     create() {
