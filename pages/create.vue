@@ -168,7 +168,7 @@
         </div>
       </div>
     </div>
-    <div class="text-right">
+    <div class="text-right mt-3">
       <b-button 
         :disabled="!createValidFlg || createdFlg"
         @click="create()" 
@@ -266,6 +266,7 @@ export default {
           tags: this.tags,
           type: 1,
           created_date: date,
+          del_flg: false,
         })
         .then((docRef) => {
             console.log("Document written with ID: ", docRef.id);

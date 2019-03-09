@@ -11,8 +11,8 @@
 
           <b-collapse is-nav id="nav_collapse">
             <b-navbar-nav class=" text-right">
-              <b-nav-item href="/" class="mx-md-1">
-                <i class="fas fa-star awesome-blue"></i> トップ
+              <b-nav-item href="/new" class="mx-md-1">
+                <i class="fas fa-star awesome-blue"></i> 新着
               </b-nav-item>
               <b-nav-item href="#" class="mx-md-1">
                 <i class="fas fa-trophy awesome-orange"></i> コンテスト(準備中)
@@ -105,6 +105,7 @@ h1 {
 .awesome-green {color: green}
 .awesome-red {color: red}
 .awesome-blue {color: deepskyblue}
+.awesome-yellow {color:gold}
 .awesome-orange {color:orange}
 .awesome-darkgoldenrod {color:darkgoldenrod}
 .awesome-black {color: black}

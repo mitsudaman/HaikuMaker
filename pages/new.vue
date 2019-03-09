@@ -3,11 +3,8 @@
     <h1 class="text-center mt-3 h2">
         <i class="fas fa-paint-brush awesome-green"></i> 俳句メーカー
     </h1>
-    <div class="text-center">
-      <img src="~/assets/img/top_image.png" class="top"/>
-    </div>
     <h2 class="text-center mt-4 h3">
-        <i class="fas fa-crown awesome-darkgoldenrod"></i>ランキング
+        新着の一句
     </h2>
     <div 
       v-for="row in haikuData"
@@ -55,30 +52,10 @@
         </div>
       </div>
     </div>
-    <!-- <div class="text-right mt-3">
+    <div class="text-right mt-3">
       <b-button 
         @click="pageNext()" 
         class="btn-haiku-create">もっとみる</b-button>
-    </div> -->
-    <h2 class="text-center mt-4 h3">
-        <i class="fas fa-users awesome-yellow"></i>人気のタグ一覧
-    </h2>
-    <div class="card p-3 mt-3">
-      <div class="tag-container">
-        <a 
-          class="tag-content"
-          :href="'/ranking/?t=IT川柳'">
-          IT川柳
-          &nbsp;
-          <small>(30個)</small>
-        </a>
-        <a class="tag-content"
-          :href="'/ranking/?t=ブラック企業川柳'">
-          ブラック企業川柳
-          &nbsp;
-          <small>(10個)</small>
-        </a>
-      </div>
     </div>
   </b-container>
 </template>
@@ -113,23 +90,16 @@ export default {
   },
   
   created: function () {
-      return this.getRankPosts(true);
+      return this.getNewPosts(true);
   },
   methods: {
     pageNext() {
-      this.getRankPosts(false)
+      this.getNewPosts(false)
     },
-    getRankPosts(firstFlg) {
+    getNewPosts(firstFlg) {
       var dbCollection = db.collection("posts")
-      // tag 有りの場合
-      if(this.$route.query.t != null){
-        dbCollection = dbCollection.where("tags","array-contains",this.$route.query.t)
-      }
-
-      dbCollection = dbCollection
-        .orderBy("read_count","desc")
+        .orderBy("created_date","desc")
         .limit(10);
-
       // もっと詠む 時
       if(!firstFlg){
         dbCollection = dbCollection.startAfter(this.lastVisible);
@@ -153,25 +123,6 @@ export default {
 <style>
 .haiku-card {
   /* background-color:yellowgreen; */
-}
-
-img.top {
-width: 100%;
-height: 100%;
-}
-
-.tag-container {
-    display: inline-flex;
-    flex-wrap: wrap;
-}
-.tag-container .tag-content {
-    background-color: #eee;
-    border: 1px solid #999;
-    border-radius: 4px;
-    color: #444;
-    font-size: 18px;
-    margin: 4px;
-    padding: 4px 10px;
 }
 </style>
 
