@@ -87,7 +87,7 @@
             y="90%"
             fill="#2b7bb9"
             font-family="HiraginoSans-W5, Hiragino Sans"
-            font-size="50px"
+            font-size="40px"
             letter-spacing="0px"
             stroke-width="2.8"
             word-spacing="0px"
@@ -187,7 +187,7 @@
     class="mt-3">
       <a 
         class="btn btn-block animationBtn btn-tw p-2" 
-        v-bind:href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー&url=https://www.haiku-maker.site/m/'+ documentId"
+        v-bind:href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー,' + (tags).join(',') + '&url=https://www.haiku-maker.site/m/'+ documentId"
         target="_blank" rel="noopener"
         role="button">
         <i class="fab fa-twitter"></i>詠み届ける</a>
@@ -232,6 +232,9 @@ export default {
       createLoadFlg: false,
       createdFlg: false
     };
+  },
+  created: function () {
+    this.tags[0] = this.$route.query.t;
   },
   computed: {
     createValidFlg () { 

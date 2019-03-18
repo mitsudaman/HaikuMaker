@@ -1,7 +1,7 @@
 <template>
   <b-container class="px-md-5">
     <h1 class="text-center mt-3 h2">
-        <i class="fas fa-crown awesome-darkgoldenrod"></i> ランキング
+        <i class="fas fa-crown awesome-darkgoldenrod"></i> {{$route.query.t}} ランキング
     </h1>
     <div 
       v-for="row in haikuData"
@@ -12,7 +12,7 @@
           <div class="col-9 col-md-10 pl-md-4 font-weight-bold h3">
             {{row.data.haiku1}}</div>
           <div class="col-3  no-gutters col-md-2 text-right">
-            <a :href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&amp;hashtags=俳句メーカー&amp;url=https://www.haiku-maker.site/m/' + row.documentId" target="_blank" rel="noopener" role="button" class="btn btn-block btn-tw p-1 p-md-2"><i class="fab fa-twitter"></i>シェア</a>
+            <a :href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&amp;hashtags=俳句メーカー,' + (row.data.tags).join(',') + '&amp;url=https://www.haiku-maker.site/m/' + row.documentId" target="_blank" rel="noopener" role="button" class="btn btn-block btn-tw p-1 p-md-2"><i class="fab fa-twitter"></i>シェア</a>
           </div>
         </div>
         <div class="row no-gutters">

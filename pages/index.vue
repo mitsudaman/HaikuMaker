@@ -6,7 +6,32 @@
     <div class="text-center">
       <img src="~/assets/img/top_image.png" class="top"/>
     </div>
+
     <h2 class="text-center mt-4 h3">
+        <i class="fas fa-newspaper awesome-blue"></i>お知らせ
+    </h2>
+    <div class="card mt-3">
+      <div class="card-body">
+        <div class="row">
+          <!-- <div class="col-md-2">
+            2019/03/18
+          </div> -->
+          <div class="col-md-12 h5 text-center">
+             <a href="/create?t=ブラック企業川柳">ブラック企業での悲しい体験や辛い経験を大募集！！！ </a>
+          </div>
+        </div>
+        <!-- <div class="row">
+          <div class="col-md-2">
+            2019/02/28
+          </div>
+          <div class="col-md-10 h5">
+            俳句メーカーをリリースしました！
+          </div>
+        </div> -->
+      </div>
+    </div>
+    
+    <h2 class="text-center mt-5 h3">
         <i class="fas fa-crown awesome-darkgoldenrod"></i>ランキング
     </h2>
     <div 
@@ -18,7 +43,7 @@
           <div class="col-9 col-md-10 pl-md-4 font-weight-bold h3">
             {{row.data.haiku1}}</div>
           <div class="col-3  no-gutters col-md-2 text-right">
-            <a :href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&amp;hashtags=俳句メーカー&amp;url=https://www.haiku-maker.site/m/' + row.documentId" target="_blank" rel="noopener" role="button" class="btn btn-block btn-tw p-1 p-md-2"><i class="fab fa-twitter"></i>シェア</a>
+            <a :href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&amp;hashtags=俳句メーカー,' + (row.data.tags).join(',') + '&amp;url=https://www.haiku-maker.site/m/' + row.documentId" target="_blank" rel="noopener" role="button" class="btn btn-block btn-tw p-1 p-md-2"><i class="fab fa-twitter"></i>シェア</a>
           </div>
         </div>
         <div class="row no-gutters">
@@ -55,11 +80,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="text-right mt-3">
-      <b-button 
-        @click="pageNext()" 
-        class="btn-haiku-create">もっとみる</b-button>
-    </div> -->
     <h2 class="text-center mt-4 h3">
         <i class="fas fa-users awesome-yellow"></i>人気のタグ一覧
     </h2>
@@ -69,14 +89,10 @@
           class="tag-content"
           :href="'/ranking/?t=IT川柳'">
           IT川柳
-          &nbsp;
-          <small>(30個)</small>
         </a>
         <a class="tag-content"
           :href="'/ranking/?t=ブラック企業川柳'">
           ブラック企業川柳
-          &nbsp;
-          <small>(10個)</small>
         </a>
       </div>
     </div>

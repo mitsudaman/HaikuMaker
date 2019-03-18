@@ -31,6 +31,15 @@
     <nuxt/>
     <footer class="text-center mt-5 mt-lg-4 px-5">
       <div>
+        <ul class="footer">
+          <li><a href="/">トップページ</a> ｜</li>
+          <li><a href="/new">新着</a> ｜</li>
+          <li><a href="/ranking">ランキング</a> ｜</li>
+          <li><a href="/create">俳句をつくる</a> ｜</li>
+          <li><a href="/thanks">Thanks</a></li>
+        </ul>
+      </div>
+      <div>
         開発・運営
         <img 
           src="~/assets/img/mitsudama.png" 
@@ -96,6 +105,10 @@ h1 {
   20% { transform: scale(1, 1); }
   30% { transform: scale(1.1, 1.1); }
   40% { transform: scale(1, 1); }
+}
+ul.footer li {
+display: inline;
+text-align: center;
 }
 
 .bg-white {

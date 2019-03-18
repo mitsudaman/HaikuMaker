@@ -197,3 +197,26 @@ https://firebase.google.com/docs/firestore/query-data/get-data?hl=ja
 
       // var date = new Date();
       // var six_days_ago = new Date(date.getFullYear(), date.getMonth(), date.getDate()-6, 0, 0);
+
+
+
+
+
+
+--------------------------------------------
+
+▪コンテナ再立ち上げした時のfirebase deploy
+
+yarn global add firebase-tools
+firebase login --no-localhost
+firebase deploy
+
+
+
+--------------------------------------------
+◼ Twitter シェア 
+https://qiita.com/coconeko/items/dcd3a004578e02f63da5
+
+<a href="https://twitter.com/share?text=テキストテキスト%0a改行もできるし%20スペースも&url=https://www.url.url/&hashtags=タグ,二つ目" onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;" rel="nofollow" class="twitter-link">
+twitterでshare
+</a>

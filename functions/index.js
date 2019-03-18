@@ -24,7 +24,7 @@ exports.m = functions.https.onRequest((req, res) => {
         console.log('Error getting document', err);
       });
 });
-const createHtml = (ogp_full_path) => {
+const createHtml = (ogp_full_path,doc_id) => {
   const SITEURL = "https://www.haiku-maker.site/"
   const TITLE = `俳句メーカー`
   const DESCRIPTION = '俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。'
@@ -46,7 +46,7 @@ const createHtml = (ogp_full_path) => {
       <meta name="twitter:description" content="${DESCRIPTION}">
     </head>
     <body>
-      <script type="text/javascript">window.location="/";</script>
+      <script type="text/javascript">window.location="/read/?d=${doc_id}";</script>
     </body>
   </html>`
 }

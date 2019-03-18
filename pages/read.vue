@@ -98,7 +98,7 @@
     class="mt-5">
       <a 
         class="btn btn-block animationBtn btn-tw p-2" 
-        v-bind:href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー&url=https://www.haiku-maker.site/m/'+ this.$route.query.d"
+        :href="'https://twitter.com/share?text=俳句メーカー。あなたの日常を俳句にして周りとシェアしましょう。&hashtags=俳句メーカー,' + tags.join(',') + '&url=https://www.haiku-maker.site/m/'+ this.$route.query.d"
         target="_blank" rel="noopener"
         role="button">
         <i class="fab fa-twitter"></i>詠み届ける</a>
@@ -131,6 +131,7 @@ export default {
   data() {
     return {
       post: {},
+      tags: [],
       haikuList: [],
       lastVisible: null
     };
@@ -143,6 +144,7 @@ export default {
     docRef.get().then(doc => {
         if (doc.exists) {
           this.post = doc.data();
+          this.tags = this.post.tags
           // ドキュメント更新
           docRef.update({
               "read_count": this.post.read_count+1,
